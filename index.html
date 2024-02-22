@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crush Inquiry</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 50px;
+        }
+
+        #responseContainer {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #noButton {
+            transition: transform 0.5s ease;
+        }
+
+        .button-hidden {
+            transform: translateX(-100%);
+        }
+        /* Basic Button Styling */
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    color: #3498db;
+    background-color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #3498db;
+    color: #fff;
+}
+/* Response Container Styling */
+#responseContainer{
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px solid #27ae60;
+    border-radius: 8px;
+    background-color: #ecf0f1;
+    color: #27ae60;
+}
+
+/* Optional: Add more styles based on your design preferences */
+
+/* Optional: Add more styles based on your design preferences */
+
+    </style>
+</head>
+<body>
+
+    <h1>Hey Crush!</h1>
+    <p>Would you be my crush?</p>
+
+    <button onclick="handleYes()">Yes</button>
+    <button id="noButton" onclick="handleNo()">No</button>
+
+    <div id="responseContainer">
+        <p id="responseMessage"></p>
+    </div>
+
+    <script>
+        function handleYes() {
+            showResponse("Thanks for accepting me as your crush!");
+        }
+
+        function handleNo() {
+            var noButton = document.getElementById("noButton");
+            noButton.classList.add("button-hidden");
+            noButton.addEventListener("transitionend", function() {
+                noButton.classList.remove("button-hidden");
+            }, { once: true });
+          
+        }
+
+        function showResponse(message) {
+            document.getElementById("responseMessage").innerHTML = message;
+            document.getElementById("responseContainer").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
